@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Тренажеры {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Оборудование</h1>
+    {% if equip %}
+    {% for el in equip %}
+    <div class="alert alert-info">
+        <h3>{{el.equip}}</h3>
+        <p>Количество в зале: {{el.amount}}</p>
+        <a href="{% url 'equipments_details_view' el.id %}"><button class="btn btn-light">Перейти к оборудованию </button></a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>У вас нет груповых тренировок</p>
+{% endif %}
+<a href="{% url 'create_equip'%}"><button class="btn btn-light">Добавить оборудование </button></a>   
+</div>
+{% endblock %}

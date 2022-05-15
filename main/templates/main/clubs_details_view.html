@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{club.club_name}}{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>{{club.club_name}}</h1> 
+    <p>Локация: {{club.location}}</p>
+    <b>Рабочие часы: {{club.workin_hours}}</b>
+    <p>Дата открытия: {{club.date}}</p>
+    <a href="{% url 'delete_club' club.id %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'clubs_update_view' club.id %}" class="btn btn-success">Редактировать</a>
+</div>
+{% endblock %}

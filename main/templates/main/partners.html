@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Наши партнеры {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Наши партнеры</h1>
+    {% if partner %}
+    {% for el in partner %}
+    <div class="alert alert-info">
+        <h3>{{el.organisation}}</h3>
+        <b>Товары партнера: {{el.product}}</b>
+        <p>Ссылка на сайт: {{el.contract}}</p>
+        <a href="{% url 'partners_details_view' el.id %}"><button class="btn btn-light">Перейти к партнеру </button></a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>У вас нет груповых тренировок</p>
+{% endif %}
+<a href="{% url 'create_partner'%}"><button class="btn btn-light">Добавить партнера</button></a> 
+</div>
+{% endblock %}

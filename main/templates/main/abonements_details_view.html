@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{abonement.title}} {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>{{abonement.title}}</h1> 
+    <p>Описание:{{abonement.description}}</p>
+    <h3>Цена:{{abonement.price}}</h3>
+    <a href="{% url 'delete_abonement' abonement.id %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'abonement_update_view' abonement.id %}" class="btn btn-success">Редактировать</a>
+</div>
+{% endblock %}

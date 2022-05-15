@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Груповые тренировки {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Групповые занятия</h1>
+    {% if grouptrain %}
+    {% for el in grouptrain %}
+    <div class="alert alert-info">
+        <h3>{{el.grouptraining}} </h3>
+        <p>Описание: {{el.gr_description}}</p>
+        <p>Тренер: {{el.personal}}</p>
+        <b>Дата и время: {{el.datetime}}</b>
+        <a href="{% url 'grouptraining_details_view' el.id %}"><button class="btn btn-light">Перейти к тренировке </button></a>
+    </div>
+    {% endfor %}
+{% else %}
+    <p>У вас нет груповых тренировок</p>
+{% endif %}
+<a href="{% url 'create_grouptraining'%}"><button class="btn btn-light">Добавить тренировку</button></a>   
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{grouptraining.grouptraining}} {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>{{grouptraining.grouptraining}}</h1> 
+    <p>Описание тренировки: {{grouptraining.gr_description}}</p>
+    <h3>Тренер: {{grouptraining.personal}}</h3>
+    <b>Дата и время тренировки: {{grouptraining.datetime}}</b>
+    <a href="{% url 'delete_grouptraining' grouptraining.id %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'grouptraining_update_view' grouptraining.id %}" class="btn btn-success">Редактировать</a>
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} Добавление сотрудника {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Добавление оборудование</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.equip }}<br>
+        {{ form.amount }}<br>
+        <button class="btn btn-success" type="submit">Добавить оборудование</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'main/layout.html' %}
+
+{% block title %} {{trainer.name}} {{trainer.surname}} {% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>{{partner.organisation}}</h1> 
+    <p>Товар партнера: {{partner.product}}</p>
+    <p>Ссылка на сайт: {{partner.contract}}</p>
+    <a href="{% url 'delete_partner' partner.id %}" class="btn btn-danger">Удалить</a>
+    <a href="{% url 'partners_update_view' partner.id %}" class="btn btn-success">Редактировать</a>
+</div>
+{% endblock %}
